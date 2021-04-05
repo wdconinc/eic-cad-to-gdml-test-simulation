@@ -1,0 +1,4 @@
+/G02/primary/thetamin 60 deg
+/G02/primary/thetamax 120 deg
+/run/beamOn 1000000
+
