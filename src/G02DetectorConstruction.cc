@@ -40,6 +40,7 @@
 #include "G4GeometryManager.hh"
 #include "G4VisAttributes.hh"
 #include "G4Material.hh"
+#include "G4UserLimits.hh"
 #include "G4AutoDelete.hh"
 
 // GDML parser include
@@ -100,6 +101,10 @@ G4VPhysicalVolume* G02DetectorConstruction::Construct()
   // Giving World Physical Volume from GDML Parser
   //
   fWorldPhysVol = fParser.GetWorldVolume();
+
+  // Set user limits
+  fWorldPhysVol->GetLogicalVolume()-> SetUserLimits(
+    new G4UserLimits(1*mm, DBL_MAX, 20*ns, 0.0, 0.0));
 
   // Set Visualization attributes to world
   //
