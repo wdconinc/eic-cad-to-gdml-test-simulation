@@ -78,8 +78,8 @@
 #if you want make a run with particle
 #/tracking/verbose 1
 /vis/ogl/set/displayListLimit 500000
-/G02/primary/thetamin 60 deg
-/G02/primary/thetamax 120 deg
+/G02/primary/thetamin 30 deg
+/G02/primary/thetamax 150 deg
 /run/beamOn 100
 #
 
