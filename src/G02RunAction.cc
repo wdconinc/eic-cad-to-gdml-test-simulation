@@ -48,24 +48,29 @@
 
 G02RunAction::G02RunAction()
  : G4UserRunAction()
-{ 
-}
+{ }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 G02RunAction::~G02RunAction()
-{
-}
+{ }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void G02RunAction::BeginOfRunAction(const G4Run* aRun)
-{  
+{
   G4cout << "### Run " << aRun->GetRunID() << " start." << G4endl;
+
+  if (IsMaster()) fTimer.Start();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void G02RunAction::EndOfRunAction(const G4Run*)
+void G02RunAction::EndOfRunAction(const G4Run* aRun)
 {
+  if (IsMaster()) {
+      fTimer.Stop();
+      G4cout << "### Run " << aRun->GetRunID() << " ended "
+             << "(" << fTimer.GetUserElapsed() << "s)." << G4endl;
+  }
 }

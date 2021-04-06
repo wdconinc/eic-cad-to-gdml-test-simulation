@@ -41,6 +41,7 @@
 
 #include "globals.hh"
 #include "G4UserRunAction.hh"
+#include "G4Timer.hh"
 
 class G4Run;
 
@@ -57,6 +58,10 @@ class G02RunAction : public G4UserRunAction
 
     virtual void BeginOfRunAction(const G4Run*);
     virtual void EndOfRunAction(const G4Run*);
+
+  private:
+
+    G4Timer fTimer;
 
 };
 
