@@ -73,7 +73,7 @@ int main(int argc, char** argv)
 
   // Construct a run manager
   //
-  auto* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::MT);
+  auto* runManager = new G4MTRunManager();
   if (threads > 0) runManager->SetNumberOfThreads(threads);
 
   // Set mandatory initialization and user action classes
